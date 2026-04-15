@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.env
+.venv
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Project specific
+*.html
+logs/
