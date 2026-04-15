@@ -50,9 +50,36 @@ python main.py watch main.py --mode security
 | `explain` | Plain English walkthrough of what code does |
 | `refactor` | Concrete refactoring suggestions with rewritten code |
 
-## Pro tip for SpectraRed
+## Codebase Graph
 
-Run security mode on your FastAPI routes before every commit:
+Generate an interactive dependency graph for any Python project — visualizes files, connections, and structure in your browser.
+
 ```bash
-python main.py diff --mode security
+# Graph current folder
+python main.py graph .
+
+# Graph any project (different drive is fine)
+python main.py graph C:\Users\Manas\projects\fashionfusion
+
+# Save to a custom file
+python main.py graph . --output mygraph.html
+
+# Generate without auto-opening browser
+python main.py graph . --no-open
+```
+
+### What you see
+
+- Every Python file as a node, sized by lines of code
+- Orange nodes = hub files with many dependencies
+- Purple nodes = regular modules
+- Click any node to see its classes, functions, and connections
+- Search files in the sidebar
+- Scroll to zoom, drag to pan
+
+### Works across drives
+
+```bash
+# Tool on D:, project on C: — no problem
+python D:\code-review-cli\main.py graph C:\projects\fashionfusion
 ```
